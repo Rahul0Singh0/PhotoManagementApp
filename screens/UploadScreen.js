@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor: '#e6f5e4',
   },
   heading: {
     fontSize: 24,
