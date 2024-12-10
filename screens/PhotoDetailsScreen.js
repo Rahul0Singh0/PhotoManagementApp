@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
 import CryptoJS from 'crypto-js';
 
 export default function ProductDetailsScreen({ route, navigation }) {
