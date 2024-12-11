@@ -75,8 +75,10 @@ export default function ProductDetailsScreen({ route, navigation }) {
       <Image source={{ uri: photo.image }} style={styles.image} />
       <Text style={styles.title}>{photo.title}</Text>
       <Text style={styles.description}>{photo.description}</Text>
-      <Button title="Delete Photo" color="red" onPress={handleDelete} />
-      <Button title="Back" color="blue" onPress={() => navigation.navigate("Gallery")} />
+      <View style={styles.button}>
+        <View style={styles.leftButton}><Button title="Delete" color="red" onPress={handleDelete} /></View>
+        <View style={styles.rightButton}><Button title="Back" onPress={() => navigation.navigate("Gallery")} /></View>
+      </View>
     </View>
   );
 }
@@ -101,5 +103,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#666',
     marginBottom: 20,
+  },
+  button: {
+    marginTop: 'auto',
+    flexDirection: 'row',
+    gap: 2,
+    justifyContent: 'center',
+  },
+  leftButton: {
+    width: '50%',
+  }, 
+  rightButton: {
+    width: '50%',
   },
 });
