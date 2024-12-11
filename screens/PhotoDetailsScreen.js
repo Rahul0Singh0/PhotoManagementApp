@@ -76,6 +76,7 @@ export default function ProductDetailsScreen({ route, navigation }) {
       <Text style={styles.title}>{photo.title}</Text>
       <Text style={styles.description}>{photo.description}</Text>
       <Button title="Delete Photo" color="red" onPress={handleDelete} />
+      <Button title="Back" color="blue" onPress={() => navigation.navigate("Gallery")} />
     </View>
   );
 }
