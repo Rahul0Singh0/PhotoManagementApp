@@ -42,7 +42,6 @@ export default function ProductDetailsScreen({ route, navigation }) {
               const data = await response.json();
   
               if (response.ok) {
-                // Remove photo from AsyncStorage
                 const storedPhotos = await AsyncStorage.getItem('photos');
                 const photos = storedPhotos ? JSON.parse(storedPhotos) : [];
                 const updatedPhotos = photos.filter((item) => item.id !== photo.id);
@@ -50,7 +49,7 @@ export default function ProductDetailsScreen({ route, navigation }) {
                 await AsyncStorage.setItem('photos', JSON.stringify(updatedPhotos));
   
                 Alert.alert('Success', 'Photo deleted successfully!');
-                navigation.navigate('Gallery'); // Navigate back to the gallery
+                navigation.navigate('Gallery');
               } else {
                 throw new Error(data.error.message || 'Failed to delete from Cloudinary');
               }
@@ -64,16 +63,12 @@ export default function ProductDetailsScreen({ route, navigation }) {
     );
   };
   
-  
-
   const extractPublicId = (url) => {
     const parts = url.split('/');
     const fileName = parts[parts.length - 1];
     const [publicId] = fileName.split('.');
     return publicId;
   };
-  
-  
 
   return (
     <View style={styles.container}>
